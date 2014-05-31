@@ -1,0 +1,11 @@
+# Site settings
+title: Электроника 101
+description: "Электроника боюнча видеосабактар."
+username: kalysosmonov
+githubname: kalys
+baseurl: "/electronika101website"
+url: "http://elektronika101.com"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
