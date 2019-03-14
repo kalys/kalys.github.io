@@ -1,0 +1,14 @@
+---
+layout: post
+title: Slony-I
+date: '2008-11-05T17:31:00.000+06:00'
+author: Kalys Osmonov
+tags:
+- slony
+- postgresql
+modified_time: '2008-11-05T17:50:50.212+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-5086292477715786061
+blogger_orig_url: http://www.osmonov.com/2008/11/slony-i.html
+---
+
+All today I've tried to make work Slony-I replication.<br />I installed default slony1-1.2.6 from oss openSUSE repository. PostgreSQL's version is 8.3.1 also from that repository.<br /><br />But slony1-1.2.6 doesn't support postgresql-8.3.1.<br />So I downloaded slony-1.2.15. And now everything works fine.<br /><br />For slony's configuring I use <a href="http://www.pgadmin.org">pgAdmin</a> which can't create new replication and shows "Slony-I creation scripts not available; only joining possible" message on status bar.<br />To solve I set "Slony-I path" to "/usr/share/postgresql" in File --> Options --> "General" tab.

@@ -1,0 +1,12 @@
+---
+layout: post
+title: My way of using as_json
+date: '2012-12-12T14:14:00.002+06:00'
+author: Kalys Osmonov
+tags:
+- ruby on rails
+modified_time: '2012-12-21T15:58:33.253+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-3166990193957415073
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on">I don't like when someone overrides as_json instance method of some rails model because you don't know where else it will be used. But defining fields to show, including related records are responsibility of model. So I use the following way:<br /><br /><br /></div><script src="https://gist.github.com/4265980.js"></script></div>

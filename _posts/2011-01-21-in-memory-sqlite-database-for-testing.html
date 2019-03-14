@@ -1,0 +1,16 @@
+---
+layout: post
+title: In memory sqlite database for testing Rails 3 app with Cucumber and RSpec
+date: '2011-01-21T13:36:00.002+06:00'
+author: Kalys Osmonov
+tags:
+- cucumber
+- rspec
+- ruby on rails
+- sqlite3
+modified_time: '2011-01-31T13:47:32.125+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-1611325332219385300
+blogger_orig_url: http://www.osmonov.com/2011/01/in-memory-sqlite-database-for-testing.html
+---
+
+Hello.<br />Let me introduce you my way of using in memory database inspite of existence of plenty articles regarding this on internets.<br /><br /><i>config/database.yml</i><br /><pre name="code" class="ruby">test: &test<br />  adapter: sqlite3<br />  encoding: utf8<br />  database: ":memory:" <br /></pre><br />In cucumber's <i>features/support/env.rb</i> in Before paste this:<br /><pre name="code" class="ruby">load_schema = lambda {<br />    # use db agnostic schema by default<br />    load "#{Rails.root.to_s}/db/schema.rb" <br /><br />    # if you use seeds uncomment next line<br />    # load "#{Rails.root.to_s}/db/seeds.rb"<br />    # ActiveRecord::Migrator.up('db/migrate') # use migrations<br />  }<br />  silence_stream(STDOUT, &load_schema) <br /></pre><br />Add lines below to <i>spec/spec_helper.rb</i>:<br /><pre name="code" class="ruby">load_schema = lambda {<br />    load "#{Rails.root.to_s}/db/schema.rb" # use db agnostic schema by default<br />    # ActiveRecord::Migrator.up('db/migrate') # use migrations<br />  }<br />  silence_stream(STDOUT, &load_schema) <br /></pre>

@@ -1,0 +1,14 @@
+---
+layout: post
+title: wmii and sound volume
+date: '2008-10-27T17:54:00.000+06:00'
+author: Kalys Osmonov
+tags:
+- linux
+- wmii
+modified_time: '2008-11-10T11:42:41.656+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-7661333204783738525
+blogger_orig_url: http://www.osmonov.com/2008/10/wmii-and-sound-volume.html
+---
+
+Sound volume can be controlled by this commands:<br /><blockquote>amixer sset PCM 5%+<br />amixer sset PCM 5%-</blockquote><br /><br />Let's use ModKey+Shift+a keys for decrease and ModKey+Shift+s for increase volume.<br /><br />So change wmiirc configuration file:<br /><span style="font-weight:bold;">Configuration Variables</span><br /><blockquote>...<br /># Configuration Variables<br />MODKEY=Mod4<br />UP=k<br />DOWN=j<br />LEFT=h<br />RIGHT=l<br /><span style="font-weight:bold;">SOUNDUPB=s<br />SOUNDDOWNB=a</span><br />...</blockquote><br /><br /><blockquote>set -- $(echo $WMII_NORMCOLORS $WMII_FOCUSCOLORS)<br />WMII_MENU='dmenu -b -fn "$WMII_FONT" -nf '"'$1' -nb '$2' -sf '$4' -sb '$5'"<br />WMII_9MENU='wmii9menu -font "$WMII_FONT" -nf '"'$1' -nb '$2' -sf '$4' -sb '$5' -br '$6'"<br />WMII_TERM="urxvt"<br /><span style="font-weight:bold;">WMII_SOUNDUP="amixer sset PCM 5%+"<br />WMII_SOUNDDOWN="amixer sset PCM 5%-"</span></blockquote><br /><br />And in <span style="font-weight:bold;">Key Binding</span> part:<br /><blockquote> Key $MODKEY-Shift-$DOWN<br />  wmiir xwrite /tag/sel/ctl send sel down<br /> Key $MODKEY-Shift-$UP<br />  wmiir xwrite /tag/sel/ctl send sel up<br /><span style="font-weight:bold;"> Key $MODKEY-Shift-$SOUNDUPB<br />  eval $WMII_SOUNDUP &<br /> Key $MODKEY-Shift-$SOUNDDOWNB<br />  eval $WMII_SOUNDDOWN &</span></blockquote>

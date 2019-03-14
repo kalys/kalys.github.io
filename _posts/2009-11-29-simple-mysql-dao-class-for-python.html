@@ -1,0 +1,15 @@
+---
+layout: post
+title: simple mysql dao class for python
+date: '2009-11-29T20:53:00.004+06:00'
+author: Kalys Osmonov
+tags:
+- mysql
+- dao
+- python
+modified_time: '2009-11-29T21:20:55.635+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-6780143616505409405
+blogger_orig_url: http://www.osmonov.com/2009/11/simple-mysql-dao-class-for-python.html
+---
+
+This is DAO class for working with mysql which may help you if you need do something quickly and don't want to use ORM:<br /><pre name="code" class="python"><br /># encoding: utf8<br /><br />import MySQLdb<br /><br />class Singleton(object):<br />    _instance = None<br />    def __new__(cls, *args, **kwargs):<br />        if not cls._instance:<br />            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)<br />        return cls._instance<br /><br /><br />class DAO(Singleton):<br />    def __init__(self):<br />        """<br />        Inits MySQL connection<br />        """<br />        self._connect()<br />        return<br /><br /><br />    def _connect(self):<br />        """<br />        Creates connection<br />        """<br />        self.connection = MySQLdb.connect(host="localhost", \<br />            user="mysql_user", \<br />            passwd="mysql_password", \<br />            db="mysql_db", \<br />            port=3306)<br />        return<br /><br /><br />    def _get_cursor(self):<br />        """<br />        Pings connection and returns cursor <br />        """<br />        try:<br />            self.connection.ping()<br />        except:<br />            self._connect()<br />        return self.connection.cursor()<br /><br /><br />    def get_row(self, query):<br />        """<br />        Fetchs one row<br />        """<br />        cursor = self._get_cursor()<br />        cursor.execute(query)<br />        row = cursor.fetchone()<br />        cursor.close()<br />        return row<br /><br /><br />    def get_rows(self, query):<br />        """<br />        Fetchs all rows<br />        """<br />        cursor = self._get_cursor()<br />        cursor.execute(query)<br />        rows = cursor.fetchall()<br />        cursor.close()<br />        return rows<br /><br /><br />    def execute(self, query):<br />        """<br />        Executes query for update, delete<br />        """<br />        cursor = self._get_cursor()<br />        cursor.execute(query)<br />        cursor.close()<br />        return<br /></pre>

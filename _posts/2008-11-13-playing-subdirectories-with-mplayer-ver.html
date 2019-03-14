@@ -1,0 +1,12 @@
+---
+layout: post
+title: playing subdirectories with mplayer ver. 2 :)
+date: '2008-11-13T22:35:00.001+06:00'
+author: Kalys Osmonov
+tags: 
+modified_time: '2009-05-21T01:33:27.733+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-6429144407819128911
+blogger_orig_url: http://www.osmonov.com/2008/11/playing-subdirectories-with-mplayer-ver.html
+---
+
+<pre name="code" class="bash">#!/bin/bash<br />find `pwd`$1 > /tmp/playlist<br />mplayer -loop 0 -shuffle -playlist /tmp/playlist<br /></pre><br /><br />it works better.

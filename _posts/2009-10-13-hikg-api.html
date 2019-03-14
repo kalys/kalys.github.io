@@ -1,0 +1,12 @@
+---
+layout: post
+title: hi.kg API
+date: '2009-10-13T01:31:00.007+06:00'
+author: Kalys Osmonov
+tags: 
+modified_time: '2009-10-13T02:18:22.931+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-798321423776672887
+blogger_orig_url: http://www.osmonov.com/2009/10/hikg-api.html
+---
+
+Dear Sudar'! ^_^<br />Please! Try out hi.kg API.<br />It's implemented on json-rpc.<br />url: http://hi.kg/api.php<br />method: shorten<br />argument: url<br />return: shorten_url<br /><br />Some examples:<br /><br /><pre name="code" class="php"><br />&lt;?php<br /><br />require_once("jsonRPCClient.php");<br />$client = new jsonRPCClient("http://hi.kg/api.php");<br /><br />echo $client->shorten( "http://www.osmonov.com");<br /><br />?><br /><br /></pre><br /><br />Also JSON-RPC PHP lib <a href="http://jsonrpcphp.org/?page=download&lang=en">here</a><br /><br />Have a nice shortening!

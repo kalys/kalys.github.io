@@ -1,0 +1,12 @@
+---
+layout: post
+title: my vim configuration
+date: '2008-10-22T11:20:00.000+06:00'
+author: Kalys Osmonov
+tags: 
+modified_time: '2008-11-11T19:32:52.228+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-3078744325559454338
+blogger_orig_url: http://www.osmonov.com/2008/10/my-vim-configuration.html
+---
+
+I don't like project plugin of vim. For me more convinient to use sessions. I bind F5 to save session.<br /><blockquote><pre>nmap <F5> :mksession! ~/eps.project<CR><br />imap <F5> <ESC>:mksession! ~/eps.project<CR></pre></blockquote><br /><br />And F6 to load from session.<br /><blockquote><pre>nmap <F6> :source ~/eps.project<CR><br />imap <F6> <ESC>:source ~/eps.project<CR></pre></blockquote><br /><br />F7, F8 are used for navigate previous and next tab.<br /><blockquote><pre>nmap <F7> gT<CR><br />imap <F7> <ESC>gT<CR><br /><br />nmap <F8> gt<CR><br />imap <F8> <ESC>gt<CR></pre></blockquote><br /><br />And coloscheme is <a href="http://blog.infinitered.com/entries/show/8">ir_black</a>. Really cool scheme for dark background terminal.<br /><br /><blockquote><pre>syntax enable<br />filetype indent on<br />filetype plugin on<br />set et<br />set sw=4<br />set smarttab<br />set fencs=utf-8<br />set foldmethod=marker<br />set autoindent<br />set number<br /><br />set backspace=indent,eol,start<br /><br />nmap <F5> :mksession! ~/eps.project<CR><br />imap <F5> <ESC>:mksession! ~/eps.project<CR><br /><br />nmap <F6> :source ~/eps.project<CR><br />imap <F6> <ESC>:source ~/eps.project<CR><br /><br />nmap <F7> gT<CR><br />imap <F7> <ESC>gT<CR><br /><br />nmap <F8> gt<CR><br />imap <F8> <ESC>gt<CR><br /><br />nmap <F9> :!upd<CR><br />imap <F9> <ESC> <br /><br />colorscheme ir_black<br /></pre></blockquote>

@@ -1,0 +1,12 @@
+---
+layout: post
+title: my first database scaling
+date: '2008-11-13T22:06:00.000+06:00'
+author: Kalys Osmonov
+tags: 
+modified_time: '2008-11-13T22:22:43.814+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-8479002118035406717
+blogger_orig_url: http://www.osmonov.com/2008/11/my-first-database-scaling.html
+---
+
+after week of learning and experimenting with vary solutions of scaling database we choose to use slony-i to replicate  very large and loaded tables. there were a few changes in our application, we just added one more connection (persistent unit) to EJB beans for slave replicated database.<br />solution was really fast to apply and inexpensive.

@@ -1,0 +1,16 @@
+---
+layout: post
+title: How to fetch feed url from web page in python
+date: '2009-10-21T18:12:00.004+06:00'
+author: Kalys Osmonov
+tags:
+- feed
+- how-to
+- python
+- rss
+modified_time: '2009-10-21T18:26:01.573+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-252950279191441457
+blogger_orig_url: http://www.osmonov.com/2009/10/how-to-fetch-feed-url-from-web-page-in.html
+---
+
+Easyly.<br /><br /><pre name="code" class="python"><br />import urllib2<br />from lxml import etree<br /><br />webPageUrl = "http://www.osmonov.com"<br />try:<br />    opener = urllib2.build_opener()<br />    response = opener.open(webPageUrl)<br />    if response.headers.__getitem__('Content-Type').startswith('text/html'):<br />        html_element = etree.HTML( response.read() )<br />        link_elements =html_element.findall('.//link[@rel="alternate"]')<br />        if link_elements.__len__() > 0:<br />            # so we can have several link tags, i use just the first<br />            feedUrl = link_elements.__getitem__(0).get('href')<br /><br />except urllib2.URLError:<br />    # commander! do something violent<br /></pre>

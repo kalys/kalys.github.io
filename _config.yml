@@ -1,10 +1,10 @@
 # Site settings
-title: Электроника 101
-description: "Электроника боюнча видеосабактар."
+title: Blog
+description: "Kalys Osmonov's blog"
 username: kalysosmonov
 githubname: kalys
 baseurl: ""
-url: "http://elektronika101.com"
+url: "https://osmonov.com"
 
 # Build settings
 markdown: kramdown

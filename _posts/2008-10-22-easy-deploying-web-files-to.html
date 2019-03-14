@@ -1,0 +1,15 @@
+---
+layout: post
+title: Easy deploying web files to
+date: '2008-10-22T11:18:00.001+06:00'
+author: Kalys Osmonov
+tags:
+- glassfish
+- cp
+- web
+modified_time: '2008-10-22T18:03:55.639+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-3240902804589366212
+blogger_orig_url: http://www.osmonov.com/2008/10/easy-deploying-web-files-to.html
+---
+
+I'm developing UI on javascript for project with Glassfish (sjsas). Application server works on local machine. It's tiring to copy changes to glassfish's web dir after editing in workcopy dir. I can edit js files in glassfish dir but several times I forgot to copy changes to workcopy dir. First I want to change docroot or alternative docroot option to my workdir copy but some reason I can't change it. After this I create symlink in web dir to workcopy dir but glassfish doesn't understand symlinks.<br /><br />So I choose the most simple way by copying with cp.<br /><pre>cp -Ru _workcopy_/_web_files_dir_ _glassfish_domain_dir_/ </pre><br />I create shell script with this command in my home bin dir and bind to F9 functional key in vim editor.

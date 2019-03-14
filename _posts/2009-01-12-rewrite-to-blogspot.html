@@ -1,0 +1,12 @@
+---
+layout: post
+title: redirect to blogspot
+date: '2009-01-12T12:18:00.006+06:00'
+author: Kalys Osmonov
+tags: 
+modified_time: '2009-05-21T01:31:20.173+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-1355866235910183058
+blogger_orig_url: http://www.osmonov.com/2009/01/rewrite-to-blogspot.html
+---
+
+I found that a lot of domain registrars with dns server don't allow to create CNAME to main domain (your-domain.com). You need to create subdomain (www.your-domain.com or blog.your-domain.com) for CNAME to ghs.google.com. .<br /><br />It's good if you have homepage (your-domain.com) and blog(blog.your-domain.com).<br /><br />But blogspot for me is homepage and blog )). So i redirect from your-domain.com to www.your-domain.com( CNAMEd ghs.google.com).<br /><br />I use apache mod_rewrite and php.<br />.htaccess<br /><blockquote><br />RewriteEngine on<br />RewriteRule ^(.*)$ index.php?$1 [QSA,L]<br /></blockquote><br /><br />index.php<br /><pre name="code" class="php"><br />&lt;?php<br /> error_reporting(0);<br /> $uri = $_SERVER['QUERY_STRING'];<br /> $uri = str_replace("index.php&", "", $uri );<br /> $uri = str_replace("index.php", "", $uri );<br /> header("Location: http://www.your-domain.com/{$uri}");<br />?><br /></pre>

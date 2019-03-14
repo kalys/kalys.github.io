@@ -1,0 +1,15 @@
+---
+layout: post
+title: CruiseControl.rb and Rails 3 with RVM
+date: '2011-07-21T18:48:00.003+06:00'
+author: Kalys Osmonov
+tags:
+- cruise control
+- rvm
+- ruby on rails
+modified_time: '2011-07-22T11:37:09.557+06:00'
+blogger_id: tag:blogger.com,1999:blog-8050025493590874033.post-1998715641753797979
+blogger_orig_url: http://www.osmonov.com/2011/07/cruisecontrolrb-and-rails-3-with-rvm.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">Hello. There is no article how to configure CruiseControl.rb(ccrb) for Rails 3 with RVM on internet so far. That's pity. Let's fix it.<br /><br />First, install ccrb (just download and unzip from <a href="https://github.com/thoughtworks/cruisecontrol.rb/downloads">https://github.com/thoughtworks/cruisecontrol.rb/downloads</a>).<br />Create new ccrb project named 'your_project'.<br /><br />Then let's open <span class="Apple-style-span" style="color: #38761d;">~/.cruise/projects/your_project/cruise_config.rb</span> with your favorite editor.<br />Uncomment next line:<br /><pre class="ruby" name="code">project.build_command = './build_my_app.sh'</pre>Add <span class="Apple-style-span" style="color: #38761d;">build_by_app.sh</span> to your rails application so full path should be <span class="Apple-style-span" style="color: #38761d;">~/.cruise/projects/your/project/work/build_by_app.sh</span>.<span class="Apple-style-span" style="color: #38761d;">&nbsp;</span><br />This file should contain next lines:<br /><pre class="ruby" name="code">#!/bin/bash<br /># Load RVM into a shell session *as a function*<br />if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then<br />  # First try to load from a user install<br />  source "$HOME/.rvm/scripts/rvm"<br />elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then<br />  # Then try to load from a root install<br />  source "/usr/local/rvm/scripts/rvm"<br />else<br />  printf "ERROR: An RVM installation was not found.\n"<br /><br />fi<br /><br />bundle install<br />bundle exec cucumber<br /></pre><br />Start ccrb and build.</div>
