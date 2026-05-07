@@ -1,11 +1,10 @@
 # General Settings
 name: Kalys Osmonov
-job_title: Full Stack Web Developer
+job_title: Full Stack Software Engineer
 email: kalys@osmonov.com
-description: I build great products at Railsware, currently Calendly. I'm member of Planetary Society and space enthusiast.
+description: Senior Full Stack Engineer | Ruby on Rails, React | Open Source Maintainer | ex-Calendly | ex-CTO.
 avatar: /public/avatar.png
 favicon: /favicon.ico
-twitter_handler: kalysosmonov
 analytics_code: UA-5801861-3
 disqus: unyuuu
 
@@ -13,7 +12,6 @@ disqus: unyuuu
 social_networks:
 -  { name: github, url: 'https://github.com/kalys' }
 -  { name: linkedin, url: 'https://www.linkedin.com/in/osmonov/' }
--  { name: twitter, url: 'https://twitter.com/kalysosmonov' }
 -  { name: facebook, url: 'https://facebook.com/osmonov' }
 -  { name: instagram, url: '' }
 -  { name: google-plus, url: '' }
